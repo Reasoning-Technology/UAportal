@@ -1,0 +1,10 @@
+# in the virtual environemnt !
+
+python -m pip install Django
+
+#python -m pip install django-countries
+#python -m pip install django-address
+python -m pip install django-cities-light
+./manage.py cities_light
+# https://django-cities-light.readthedocs.io/en/stable-3.x.x/
+#./manage.py help cities_light

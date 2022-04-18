@@ -1,0 +1,12 @@
+
+2022-04-16T20:01:01Z
+    make a repo for this?  at least a tar file
+
+2022-04-16T20:01:01Z
+    password recovery email - also set initial password by recovering, admin pannel guy just puts the email address... hmm or forces password
+
+2022-04-16T20:01:01Z
+    max retries on login
+
+2022-04-15T21:46:35
+    add the favicon
