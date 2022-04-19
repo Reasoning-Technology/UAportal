@@ -24,18 +24,18 @@ admin.site.site_title = "UARPA Admin" # appears at the top of the browser window
 admin.site.site_header = "UARPA Credentials"  # appears above username/password dialog
 admin.site.index_title = "Welcome to UARPA" # dunno where
 
-def home(request):
+def initial(request):
   context = {
     'is_photographer': request.user.groups.filter(name='photographer').exists()
     ,'is_staff': request.user.groups.filter(name='staff').exists()
   }
-  return render(request ,'home.html' ,context)
+  return render(request ,'initial.html' ,context)
 
 urlpatterns = [
     path('admin/', admin.site.urls)
     ,path('accounts/', include('django.contrib.auth.urls'))
     ,path('photo_accounting/', include('photo_accounting.urls'))
-    ,path('', home, name='home')
+    ,path('', initial, name='initial')
 ]
 
 from django.conf import settings

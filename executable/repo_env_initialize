@@ -1,0 +1,7 @@
+#!/bin/bash
+# sourced into the environment
+
+source env/bin/activate
+
+
+
