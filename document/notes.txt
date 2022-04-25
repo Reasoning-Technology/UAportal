@@ -1,3 +1,6 @@
 
 IRC preferred this to pastebin:
 https://bpa.st
+
+Had difficulty with the column 'action'  in the Action table. Don't know if it was due to deleting
+migrations files so that it lost track, or if Django did not like the name.

@@ -1,0 +1,374 @@
+
+/* 
+
+To prevent the big white flash, giving html a background color.  However, then the in firefox at least, the body is no
+longer 100% height.  To fix that requires 100% height to be specified both on html and body.
+
+for the background image:
+https://en.wikipedia.org/wiki/Ukraine
+image attribution: Роман Наумов, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+
+Without background specified for html, I had the following:
+
+  background: rgb(23 ,88 ,142) url(Kiev_flag.jpg);
+
+It was working, but then the image stopped showing.  Go figure.  Cache? Bandwidth of connection?  Is it that smart? So
+then I moved coloring html, which also had issues, as noted above.
+*/
+
+:root{
+  --page-background-0: rgb(23 ,88 ,142);
+  --page-background-1: url(Kiev_flag.jpg);
+  --page-background-2: linear-gradient(180deg ,rgb(23 ,88 ,142) ,gold 80rem ,NavajoWhite);
+  --text-color: white;
+  --link-text: white;
+}
+
+html{
+  height: 100%;
+  background: var(--page-background-0);
+}
+
+.copyright{
+  font-style: italic;
+  flex-grow:0;
+}
+
+html{
+  height: 100%;
+  background: var(--page-background-0);
+}
+
+/* margin-right: calc(100vw - 100%); */
+/* margin-bottom:calc(100vh - 100%); */
+.view_port{
+  width: calc(100vw - 20px);
+  /*    max-width:1561px; */
+/*  max-width:1200px;*/
+  min-width:340px;
+  min-height: calc(100vh - 20px);
+  height: calc(100vh - 20px);
+  max-height: calc(100vh - 20px);
+  justify-self:flex-start;
+  align-self:flex-start;
+}
+
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+body {
+  height: 100%;
+  width: 100%;
+  background: var(--page-background-1);
+  color: var(--text-color);
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/*--------------------------------------------------------------------------------
+top level html objects
+*/
+
+h1 {
+  font-weight: normal;
+/*  letter-spacing: -1px; */
+}
+
+p {
+  color: hsl(50,100%,80%);
+}
+
+/*--------------------------------------------------------------------------------
+the left side navigation bar
+*/
+
+.sidebar-nav {
+  margin: 1em;
+}
+
+    .sidebar-nav a{
+      margin: 0.1em 0em 0.1em 0em;
+      color: var(--link-text);
+      text-decoration: none;
+      /*      font-weight:bold; */
+      font-weight:medium;
+      outline:none;
+      flex-grow:0;
+    }
+    .sidebar-nav a:hover{
+      cursor: pointer;
+      color: hsl(240,100%,50%);
+      background-color: hsl(200,100%,70%);;
+    }
+    .sidebar-nav a:active{
+/*
+      outline:inset;
+      outline-color: gray;
+      color: hsl(240,40%,40%)
+      background-color: hsl(60, 70%, 20%);
+      text-shadow: .035em .05em .01em  black;
+*/
+      outline:inset;
+      outline-width:1;
+      outline-color:hsl(0,0%,80%);
+      color: hsl(240,80%,25%);
+      background-color: hsl(200,100%,70%);
+    }
+
+
+.sidebar-nav .application{
+  text-decoration:bold
+}
+
+.sidebar-nav .indent {
+  padding-left:1rem;
+}
+
+.sidebar-nav .user{
+  color:gold;
+}
+
+/*--------------------------------------------------------------------------------
+first column is the sidebar, second column is typically content with margin
+*/
+
+.content-0{
+  margin: 3em .2em .2em 1em;
+}
+
+
+
+/*--------------------------------------------------------------------------------
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+*/
+
+.rwd-table {
+  margin: 1em 0;
+  min-width: 300px;
+}
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  text-align: center;
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+  border-color: #46637f;
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+  color: #dd5;
+}
+
+[contenteditable="true"].single-line {
+    white-space: nowrap;
+/*    width:200px; */
+    overflow: hidden;
+} 
+[contenteditable="true"].single-line br {
+    display:none;
+
+}
+[contenteditable="true"].single-line * {
+    display:inline;
+    white-space:nowrap;
+}
+
+/*--------------------------------------------------------------------------------
+  rows and columns
+
+  Most css has a absolute sense of x (width) and y(height) directions.  The 'flexbox'
+  container is different. Paramaters are instead relative to the 'direction' of
+  the flex box container.
+
+  As an example, 'flex-start' for a row is the left side, while 'flex-start' for a column is
+  the top.
+
+  So as to accomodate the flex parameters, in the css I use these terms:
+
+  'inline' is the x direction for rows, and the y direction for columns
+  'contra' is the y direction for rows, and the x direction for columns
+
+  If you change a row to a column, or vice-versa, you might also need to make a text
+  substituion of inline->contra, and contra->inline.  (I didn't design this.  This is 
+  the css standard.)
+
+  Each flexbox container is also an html element.  It is one of the child elements
+  to its .getElementParent().  Hence, css style attributs may style the flex box
+  as a child element of its parent, or as a container. 
+
+  It would be nice if we could inherit in css, but that is not supported.  In place of
+  inheritance you may see many 'mixin' classes specified in a given class list.
+*/
+  .row{
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content:flex-start;
+    flex-basis:0;
+  }
+  .column{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    flex-basis:0;
+  }
+
+/*
+  .columns_flow{
+    display:inline-block;
+  }
+*/ 
+
+  /*----------------
+     applies to all child elements and must be placed on either a row or column
+  */
+
+    /* pick at most one */
+    .contra-grow-all{
+      align-items:stretch;
+    }
+    .contra-justify-start-all{ /* default */
+      align-items:flex-start;
+    }
+    .contra-justify-center-all{
+      align-items:center;
+    }
+
+    /* pick at most one */
+    .inline-justify-start-all{ /* default */
+      justify-content:flex-start;
+    }
+    .inline-justify-center-all{ 
+      justify-content:center;
+    }
+    .inline-justify-space-around-all{
+      justify-content:space-around;
+    }
+
+  /*----------------
+    applies the element it appears on, makes an exception to the 'all' setting
+    the element could be anything, including a row row or column.
+  */
+
+    /* pick at most one */
+    .contra-grow-el{ /* for contra-grow-el to expand to availabe space the container must be inline-grow-el */
+      align-self:stretch;
+    }
+    .contra-justify-start-el{  /* default */
+      align-self:flex-start;
+    }
+    .contra-justify-center-el{
+      align-self:center;
+    }
+
+    /* pick at most one */
+    .inline-grow-el{
+      flex-shrink:1;
+      flex-grow:1;
+      flex-basis:0;
+    }
+    .inline-justify-start-el{
+      justify-self:flex-start;
+    }
+    .inline-justify-end-el{
+      justify-self:flex-end;
+    }
+
+  /*----------------------------------------
+    If the row/column does not fit going in the x/y direction, then it either 'overflows' or
+    it wraps.  'overflow' is the default, override the default by specifying 'wrap'.
+
+    When a row/column wraps we have the question of spacing between the multiple wrapped rows/columns.
+    The default is to just wrap with no space (other than padding and margin) between the rows.
+  */
+    .wrap{
+      flex-wrap:wrap;
+      align-content:flex-start;
+    }
+    .wrap-space-around{
+      flex-wrap:wrap;
+      align-content:space-around;
+    }
+
+       /*----------------------------------------
+     there are cheats to change the behavior of flexbox
+
+  */
+    /* a small gap that slowly grows in the inline direction.  A sort of flexible margin. */
+    .spring-0{ 
+      margin:0;
+      padding:0;
+      flex-grow: 0.15;
+    }
+    /* supper stretchy, so much so that nothing else will be able to gow */
+    .spring-1{ 
+      margin:0;
+      padding:0;
+      flex-grow: 1000;
+    }
+    /* Takes up no space in the inline direction, but will stretch in the contra direction.  Used
+       to fill the contra direction when nothing else will, so that the container will contra stretch.
+   */
+    .gasket-0{
+      margin:0;
+      padding:0;
+      flex-grow: 0;
+      align-self:stretch;
+    }

@@ -1,10 +1,13 @@
 # in the virtual environemnt !
 
 python -m pip install Django
+python -m pip install --upgrade pip'
+pip install django-qr-code
 
+#python -m pip install qrcode
 #python -m pip install django-countries
 #python -m pip install django-address
-python -m pip install django-cities-light
-./manage.py cities_light
+#python -m pip install django-cities-light
+#./manage.py cities_light
 # https://django-cities-light.readthedocs.io/en/stable-3.x.x/
 #./manage.py help cities_light

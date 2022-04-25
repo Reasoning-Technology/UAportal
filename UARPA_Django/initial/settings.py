@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-m8y(y83b&+vr9dmasp0d(*pm6zk$m-oz@bb&(k-7g1d8x!0g@w'
 SECRET_KEY = 'jp+2x_d9f^2g@kbqq1s34h4+b3@#mf5)#=#hh!q-c8_-gwt!i_' 
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: set DEBUG to False for the production site!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -39,7 +39,10 @@ INSTALLED_APPS = [
   ,'django.contrib.sessions'
   ,'django.contrib.messages'
   ,'django.contrib.staticfiles'
-  ,'photo_accounting.apps.PhotoAccountingConfig'
+  ,'photographer.apps.PhotographerConfig'
+  ,'staff.apps.StaffConfig'
+  ,'shared.apps.SharedConfig'
+  ,'qr_code'
 ]
 #GOOGLE_API_KEY = 'AIzaSyD--your-google-maps-key-SjQBE'
 
@@ -55,20 +58,25 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'initial.urls'
 
+
+# don't know why I had to add shared/templates here because shared is an app, so it should be looking there already
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'initial/templates') ,os.path.join(BASE_DIR, 'initial/templates/base')],
-        'APP_DIRS': True,
-        'OPTIONS': {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates'
+        ,'DIRS': [
+          os.path.join(BASE_DIR ,'initial/templates') 
+          ,os.path.join(BASE_DIR ,'shared/templates')
+        ]
+        ,'APP_DIRS': True
+        ,'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+            ]
+        }
+    }
 ]
 
 WSGI_APPLICATION = 'initial.wsgi.application'
@@ -79,8 +87,8 @@ WSGI_APPLICATION = 'initial.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3'
+        ,'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 
@@ -91,16 +99,16 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
+    }
+    ,{
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
+    }
+    ,{
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
+    }
+    ,{
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    }
 ]
 
 
@@ -125,9 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'initial/static')
+    ,os.path.join(BASE_DIR, 'staff/static')
+    ,os.path.join(BASE_DIR, 'photographer/static')
+    ,os.path.join(BASE_DIR, 'shared/static')
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

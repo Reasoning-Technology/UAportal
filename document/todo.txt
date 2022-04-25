@@ -10,3 +10,22 @@
 
 2022-04-15T21:46:35
     add the favicon
+
+2022-04-25T13:23:12Z
+    It is possible to get the cursor in the div but before input field on our forms.  We should fix that.
+    I tried getting rid of the div, and just putting style on the input tag, that seemed to make things
+    worse.
+
+    easy way to do this: it tab to get to the next field
+
+2022-04-25T20:20:00Z
+    After hitting 'add record' go to a page that says 'record added'  delay, then go back to the root
+    menu.  Right now it goes directly back.
+
+    Something like this:
+    https://www.encodedna.com/javascript/redirect-page-after-a-delay-using-javascript.htm
+
+2022-04-25T23:02:53Z
+    staff_photographer.html edit delete buttons need be implemented, same for refugee
+
+

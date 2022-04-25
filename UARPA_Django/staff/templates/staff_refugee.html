@@ -1,0 +1,49 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+  <h1>Refugee</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+{% if function == 'add' %}
+   <div class='edit-record'>
+     <table class="rwd-table">
+       <thead>
+         <p> Adding a refugee to the database.
+         </p>
+         <tr>
+           <th> email</th>
+           <th> phone</th>
+           <th> last name </th>
+           <th> first name etc. </th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><div contenteditable='true' class='single-line'>  
+             <input type="email" name="email" placeholder="john.adams@example.com" size=25 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="tel" name="phone" placeholder="+33 00 55 55 5555" size=12 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="last" placeholder="Adams" size=25 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="first_etc" placeholder="John Quincey" size=30 required>
+           </div></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+   <button type="submit" name='submit-add'> Print QR Code </button> 
+{% else %}
+   <div class='function-selector-box'>
+     <button type="submit" name='add'> Add </button> 
+   </div>
+{% endif %}
+
+{% endblock %}
+
+ </form>

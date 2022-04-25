@@ -1,0 +1,80 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+  <h1>Photographer</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+{% if function == 'add' %}
+  <p> Adding a new photographer.
+
+   <div class='edit-record'>
+     <table class="rwd-table">
+       <thead>
+         The following information is published in the guide provided to Refugees
+         <tr>
+           <th> shop name </th>
+           <th> shop street</th>
+           <th> shop city</th>
+           <th> shop country </th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="shop_name" placeholder="The Imaginary Photo Shop" size=30>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'>  
+             <input type="text" name="shop_street" placeholder="15 Pl. du Maréchal-Leclerc" size=35 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="shop_city" placeholder="Poitiers 86000" size=15 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="shop_country" placeholder="France" size=15 required>
+           </div></td>
+         </tr>
+       </tbody>
+
+     <table class="rwd-table">
+       <thead>
+         The following information is only shown to staff.  The record is keyed on the email address.
+         <tr>
+           <th> contact email</th>
+           <th> contact phone</th>
+           <th> contact name </th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><div contenteditable='true' class='single-line'>  
+             <input type="email" name="contact_email" placeholder="john.adams@example.com" size=25 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="tel" name="contact_phone" placeholder="+33 00 55 55 5555" size=12 required>
+           </div></td>
+           <td><div contenteditable='true' class='single-line'> 
+             <input type="text" name="contact_name" placeholder="John Quincy Adams the III" size=25 required>
+           </div></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+   <button type="submit" name='submit_add'> Send Confirmation Email </button> 
+{% elif function == 'edit' %}
+   edit function under construction
+   <button type="submit" name='submit_edit'> Save </button> 
+{% elif function == 'delete' %}
+   delete function under construction
+   <button type="submit" name='submit_delete'> Confirm Delete </button>
+{% else %}
+   <div class='function-selector-box'>
+     <button type="submit" name='add'> Add </button> 
+     <button type="submit" name='edit'> Edit </button> 
+     <button type="submit" name='delete'> Delete </button> 
+   </div>
+{% endif %}
+
+{% endblock %}
+ </form>

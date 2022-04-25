@@ -1,5 +1,8 @@
 #!/bin/bash
 set -x
-python3 manage.py makemigrations
-python3 manage.py migrate
+#python manage.py makemigrations --empty shared
+python manage.py makemigrations
+python manage.py migrate
+# first time:
+#python manage.py loaddata action_data.json
 set +x

@@ -1,0 +1,21 @@
+{% extends "staff_base_no_menu.html" %}
+{% load qr_code %}
+
+{% block content %}
+<p> Take this to one of the approved photographers </p>
+
+{% comment %}
+  {% qr_from_text url size="m" image_format="png" error_correction="L" %}
+{% endcomment %}
+
+<div style="height:30px"></div>
+<div>
+  {% qr_from_text url size="t" image_format="png" error_correction="h" %}
+</div>
+<div style="height:30px"></div>
+
+  <p>{{ rid }}</p>
+
+{% endblock %}
+
+ </form>

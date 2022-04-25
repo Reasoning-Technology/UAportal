@@ -1,0 +1,5 @@
+[
+  {"model":"shared.Action" ,"id":1 ,"fields":{"action":"add"}}
+  ,{"model":"shared.Action" ,"id":2 ,"fields":{"action":"edit"}}
+  ,{"model":"shared.Action" ,"id":3 ,"fields":{"action":"delete"}}
+]

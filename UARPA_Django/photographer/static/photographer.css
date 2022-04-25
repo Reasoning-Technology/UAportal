@@ -1,0 +1,16 @@
+/*
+*/
+body {
+  background: var(--page-background-2); 
+}
+
+.function-selector-box{
+  margin: 1em;
+}
+
+.edit-record {
+  margin: 1em;
+}
+
+
+

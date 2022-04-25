@@ -1,0 +1,6 @@
+#!/bin/bash
+set -x
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata action_data.json
+set +x

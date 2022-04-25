@@ -1,0 +1,13 @@
+/*
+  background: linear-gradient(180deg ,rgb(23 ,88 ,142) ,gold 80rem ,NavajoWhite); 
+
+*/
+body {
+  background: var(--page-background-2); 
+}
+
+/*
+label {
+  color: white;
+}
+*/
