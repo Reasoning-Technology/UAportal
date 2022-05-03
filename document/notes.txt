@@ -2,5 +2,9 @@
 IRC preferred this to pastebin:
 https://bpa.st
 
-Had difficulty with the column 'action'  in the Action table. Don't know if it was due to deleting
-migrations files so that it lost track, or if Django did not like the name.
+Initially two groups: staff ,photographers.  staff may add photographers and
+refugees.  Photographers may scan QR codes to add to the phototaken table.  We
+use an 'actions' field to know if we are adding edited or delete info to the
+table.  I.e. these groups only add to the tables even when deleting, thus
+there is a full audit record.
+

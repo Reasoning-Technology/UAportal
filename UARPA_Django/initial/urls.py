@@ -13,7 +13,7 @@ urlpatterns = [
      path('audit/' ,admin.site.urls)
     ,path('accounts/' ,include('django.contrib.auth.urls'))
     ,path('photographer/' ,include('photographer.urls'))
-    ,path('staff/' ,include('staff.urls'))
+    ,path('organizer/' ,include('organizer.urls'))
     ,path('' ,initial ,name='initial')
 ]
 

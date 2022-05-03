@@ -1,7 +1,8 @@
-# in the virtual environemnt !
 
+python3 -m venv env
+source env/bin/activate
 python -m pip install Django
-python -m pip install --upgrade pip'
+python -m pip install --upgrade pip
 pip install django-qr-code
 
 #python -m pip install qrcode

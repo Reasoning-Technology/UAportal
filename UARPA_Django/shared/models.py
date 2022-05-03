@@ -1,5 +1,8 @@
 from django.db import models
 from . import rand
+from django.contrib.auth import get_user_model
+
+AUTH_USER_MODEL = get_user_model()
 
 #--------------------------------------------------------------------------------
 class Action(models.Model):
@@ -16,7 +19,7 @@ class Action(models.Model):
 class Photographer(models.Model):
   date = models.DateField(auto_now=True);
   action = models.ForeignKey('Action' ,on_delete=models.SET_NULL ,null=True)
-  staff =  models.CharField(max_length=40, help_text='authenticated user who made this record')
+  organizer =  models.ForeignKey(AUTH_USER_MODEL ,on_delete=models.SET_NULL ,null=True)
   shop_name =  models.CharField(max_length=40, help_text='shop name')
   shop_street =  models.CharField(max_length=40, help_text='shop street')
   shop_city =  models.CharField(max_length=40, help_text='shop city')
@@ -24,7 +27,7 @@ class Photographer(models.Model):
 
   contact_email  = models.EmailField(help_text='contact email' ,blank=True)
   contact_phone = models.CharField(max_length=40, help_text='phone number')
-  conact_name =  models.CharField(max_length=40, help_text='contact name')
+  contact_name =  models.CharField(max_length=40, help_text='contact name')
 
   def __str__(self):
     return self.contact_email
@@ -40,7 +43,7 @@ class Photographer(models.Model):
 class Refugee(models.Model):
   date = models.DateField(auto_now=True);
   action = models.ForeignKey('Action' ,on_delete=models.SET_NULL ,null=True)
-  staff =  models.CharField(max_length=40, help_text='authenticated user who made this record')
+  organizer =  models.ForeignKey(AUTH_USER_MODEL ,on_delete=models.SET_NULL ,null=True)
   rid = models.CharField(max_length=20)
   email  = models.EmailField(help_text='email' ,blank=True)
   phone = models.CharField(max_length=40, help_text='phone number' ,blank=True)
@@ -76,7 +79,7 @@ class Refugee(models.Model):
 class PhotoTaken(models.Model):
   date = models.DateTimeField(auto_now=True);
   action = models.ForeignKey('Action' ,on_delete=models.SET_NULL ,null=True)
-  photographer =  models.CharField(max_length=40, help_text='authenticated photographer who made this record')
+  photographer =  models.ForeignKey('Photographer' ,on_delete=models.SET_NULL ,null=True)
   refugee = models.ForeignKey('Refugee' ,on_delete=models.SET_NULL ,null=True)
   
   def __str__(self):

@@ -1,0 +1,28 @@
+echo > log
+echo logged_out.html >> log
+diff logged_out.html  other/logged_out.html >> log
+
+echo >> log
+echo login.html >> log
+diff login.html  other/login.html >> log
+
+echo >> log
+echo password_reset_complete.html >> log
+diff password_reset_complete.html  other/password_reset_complete.html >> log
+
+echo >> log
+echo password_reset_confirm.html >> log
+diff password_reset_confirm.html  other/password_reset_confirm.html >> log
+
+echo >> log
+echo password_reset_done.html >> log
+diff password_reset_done.html  other/password_reset_done.html >> log
+
+echo >> log
+echo password_reset_email.html >> log
+diff password_reset_email.html  other/password_reset_email.html >> log
+
+echo >> log
+echo password_reset_form.html >> log
+diff password_reset_form.html  other/password_reset_form.html >> log
+

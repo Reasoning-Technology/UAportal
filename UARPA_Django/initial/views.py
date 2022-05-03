@@ -4,7 +4,7 @@ from django.shortcuts import render
 def initial(request):
   context = {
     'is_photographer': request.user.groups.filter(name='photographer').exists()
-    ,'is_staff': request.user.groups.filter(name='staff').exists()
+    ,'is_organizer': request.user.groups.filter(name='organizer').exists()
   }
   return render(request ,'initial.html' ,context)
 

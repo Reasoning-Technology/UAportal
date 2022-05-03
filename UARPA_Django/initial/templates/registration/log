@@ -1,0 +1,131 @@
+
+logged_out.html
+1c1
+< {% extends "registration.html" %}
+---
+> {% extends "base_spartan.html" %}
+3,6c3,7
+< {% block content %}
+<   <p>Logged out!</p>
+<   <a href="{% url 'login'%}">Click here to login again.</a>
+< {% endblock %}
+---
+> {% block content_spartan %}
+> 
+> Thanks for spending some quality time with the Web site today.
+> 
+> {% endblock %}
+\ No newline at end of file
+
+login.html
+0a1
+> {% extends "base_spartan.html" %}
+2,6c3
+< {% extends "registration.html" %}
+< 
+< {% block content %}
+< <div class='content-0 contra-justify-start-el'>
+< 
+---
+> {% block content_spartan %}
+10a8,16
+>   {% if next %}
+>     {% if user.is_authenticated %}
+>       <p>Your account doesn't have access to this page. To proceed,
+>       please login with an account that has access.</p>
+>     {% else %}
+>       <p>Please login to see this page.</p>
+>     {% endif %}
+>   {% endif %}
+> 
+13a20
+> 
+18c25,26
+<       <tr>
+---
+> 
+>       <tr> 
+22a31
+> 
+23a33
+>     <input type="hidden" name="next" value="{{ next }}" />
+27,31c37,38
+<   <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+< 
+< </div>
+< 
+< {% endblock %}
+---
+>   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+> {% endblock %}
+\ No newline at end of file
+
+password_reset_complete.html
+1c1
+< {% extends "registration.html" %}
+---
+> {% extends "base_spartan.html" %}
+3c3
+< {% block content %}
+---
+> {% block content_spartan %}
+6c6
+< {% endblock %}
+---
+> {% endblock %} 
+\ No newline at end of file
+
+password_reset_confirm.html
+1c1
+< {% extends "registration.html" %}
+---
+> {% extends "base_spartan.html" %}
+3c3
+< {% block content %}
+---
+> {% block content_spartan %}
+29c29
+< {% endblock %}
+---
+> {% endblock %}
+\ No newline at end of file
+
+password_reset_done.html
+1c1
+< {% extends "registration.html" %}
+---
+> {% extends "base_spartan.html" %}
+3c3
+< {% block content %}
+---
+> {% block content_spartan %}
+5c5
+< {% endblock %}
+---
+> {% endblock %}
+\ No newline at end of file
+
+password_reset_email.html
+2c2
+< {{ protocol}}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+---
+> https://www.reasoningtechnology.com/{% url 'password_reset_confirm' uidb64=uid token=token %}
+
+password_reset_form.html
+1c1
+< {% extends "registration.html" %}
+---
+> {% extends "base_spartan.html" %}
+3c3
+< {% block content %}
+---
+> {% block content_spartan %}
+9c9
+<       <p>{{ form.email }}</p>
+---
+>       <p>{{ form.email }}</p> 
+12c12
+< {% endblock %}
+---
+> {% endblock %}
+\ No newline at end of file

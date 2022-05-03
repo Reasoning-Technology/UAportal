@@ -40,7 +40,7 @@ INSTALLED_APPS = [
   ,'django.contrib.messages'
   ,'django.contrib.staticfiles'
   ,'photographer.apps.PhotographerConfig'
-  ,'staff.apps.StaffConfig'
+  ,'organizer.apps.OrganizerConfig'
   ,'shared.apps.SharedConfig'
   ,'qr_code'
 ]
@@ -135,7 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'initial/static')
-    ,os.path.join(BASE_DIR, 'staff/static')
+    ,os.path.join(BASE_DIR, 'organizer/static')
     ,os.path.join(BASE_DIR, 'photographer/static')
     ,os.path.join(BASE_DIR, 'shared/static')
 ]
@@ -147,3 +147,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp-relay.gmail.com'
+DEFAULT_FROM_EMAIL = 'no-reply@UARPA.org'

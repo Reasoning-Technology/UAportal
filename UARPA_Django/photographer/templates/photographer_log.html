@@ -3,14 +3,17 @@
 {% block content %}
   <h1>Log</h1>
 
-  {% if is_staff %}
-    <p> confirming scan of:</p>
-    <p> {{ rid }} </p>
-  {% endif %}
-
-  {% if is_photographer %}
-    <p> picture has been taken for:</p>
-    <p> {{ rid }} </p>
+  {% if not found %}
+      <p> {{ rid }} was not found in the database </p>
+  {% else %}
+    {% if is_organizer %}
+      <p> confirming scan of {{ rid }}</p>
+    {% elif is_photographer %}
+      <p> picture has been taken for:</p>
+      <p> {{ rid }} </p>
+    {% else %}
+      <p> not photographer and not organizer </p>  
+    {% endif %}
   {% endif %}
 
   <p> end of page </p>

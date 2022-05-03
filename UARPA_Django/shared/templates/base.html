@@ -25,10 +25,10 @@
           {% if is_photographer %}
             <a href="">Register Refugee Picture Taken</a></li>
           {% endif %}
-          {% if is_staff %}
-            <span class="application"> Staff </span>
-            <span class="indent"><a href="{% url 'staff_photographer' %}">Photographer</a></span>
-            <span class="indent"><a href="{% url 'staff_refugee' %}">Refugee</a></span>
+          {% if is_organizer %}
+            <span class="application"> Organizer </span>
+            <span class="indent"><a href="{% url 'organizer_photographer' %}">Photographer</a></span>
+            <span class="indent"><a href="{% url 'organizer_refugee' %}">Refugee</a></span>
           {% endif %}
       </div>
       <div class="inline-grow-el column contra-justify-center-all">
@@ -39,7 +39,7 @@
 
     <div class='spring-1'> </div>
     <div class='copyright inline-justify-end-el small padding-4'>
-      Copyright © 2009-2021 by Reasoning Technology.  All Rights Reserved.
+      This Website Copyright © 2022 by Reasoning Technology.  All Rights Reserved.
     </div>
     <!-- <script src="{% static 'components.js' %}"></script>  -->
   </div>
