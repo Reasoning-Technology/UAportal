@@ -3,10 +3,9 @@ from django.urls import path
 from django.conf.urls import include
 from .views import *
 
-# UARPA == UA Refugee Photo Accounting
-admin.site.site_title = "UARPA Admin" # appears at the top of the browser window when admin tab is active
-admin.site.site_header = "UARPA Credentials"  # appears above username/password dialog
-admin.site.index_title = "Welcome to UARPA" # dunno where
+admin.site.site_title = "UAportal Admin" # appears at the top of the browser window when admin tab is active
+admin.site.site_header = "UAportal Credentials"  # appears above username/password dialog
+admin.site.index_title = "Welcome to UAportal" # dunno where
 
 urlpatterns = [
 #    path('admin/' ,admin.site.urls)

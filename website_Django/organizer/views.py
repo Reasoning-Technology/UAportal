@@ -44,7 +44,7 @@ def photographer(request):
       send_mail(
         'New Photographer Account'
         ,"Please login and hit the 'reset password'  link"
-        ,'no-reply@UARPA.org'
+        ,'no-reply@UAportal.org'
         ,[email]
         ,fail_silently=False
       )
