@@ -25,10 +25,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'jp+2x_d9f^2g@kbqq1s34h4+b3@#mf5)#=#hh!q-c8_-gwt!i_' 
 
 # SECURITY WARNING: set DEBUG to False for the production site!
+# DEBUG = False
 DEBUG = True
 
+# the uaportal users does not have permission to write /var/www/html, so first collect statics here, then move them
+STATIC_ROOT = os.path.join(BASE_DIR ,'../collected_static') 
 
-ALLOWED_HOSTS = []
+
+# I don't see why not to allow everything, with this, which works:
+#ALLOWED_HOSTS = ['*']
+# but this is mores specific, and also works:
+ALLOWED_HOSTS = [
+  'localhost'
+  ,"35.194.71.194"
+  ,"uaportal.org"
+  ,"www.uaportal.org"
+  ]
 
 # Application definition
 

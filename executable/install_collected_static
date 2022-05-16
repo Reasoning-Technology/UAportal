@@ -1,0 +1,10 @@
+#!/bin/bash
+# probably a good idea to remove all the files and directories already in target before running this
+# this script must be run as superuser
+
+target="/var/www/html/uaportal/static"
+source="/home/uaportal/collected_static"
+
+find "$source"/* \( -type d -execdir chmod 750 {} \; \) -o \( ! -type d -execdir chmod 640 {} \; \)
+mv "$source"/* "$target"
+
